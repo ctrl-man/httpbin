@@ -15,18 +15,16 @@
 ##################################################################################################
 # httpbin service
 ##################################################################################################
-kind: Namespace
 apiVersion: v1
+kind: Namespace
 metadata:
   name: httpbin
-  labels:
-    name: httpbin
 ---    
 apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: httpbin
-  namespace: test  
+  namespace: httpbin  
 ---
 apiVersion: v1
 kind: Service
@@ -48,7 +46,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: httpbin
-  namespace: test
+  namespace: httpbin
 spec:
   replicas: 1
   selector:
